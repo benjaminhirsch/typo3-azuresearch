@@ -1,0 +1,12 @@
+##################################
+### AZURE SEARCH CONFIGURATION ###
+##################################
+
+# cat=Microsoft Azure Search Credentials; type=string; label=LLL:EXT:azuresearch/Resources/Private/Language/locallang.xlf:config.azure_search_url
+azureUrl =
+
+# cat=Microsoft Azure Search Credentials; type=string; label=LLL:EXT:azuresearch/Resources/Private/Language/locallang.xlf:config.azure_search_admin_key
+azureAdminKey =
+
+# cat=Microsoft Azure Search Credentials; type=string; label=LLL:EXT:azuresearch/Resources/Private/Language/locallang.xlf:config.azure_search_version
+azureVersion =

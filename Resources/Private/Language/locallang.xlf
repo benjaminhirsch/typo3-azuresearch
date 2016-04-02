@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+    <file t3:id="1415814842" source-language="en" datatype="plaintext" original="messages" date="2011-10-17T20:22:33Z" product-name="install">
+        <header/>
+        <body>
+            <trans-unit id="config.azure_search_url">
+                <source>Microsoft Azure Search URL</source>
+            </trans-unit>
+            <trans-unit id="config.azure_search_admin_key">
+                <source>Microsoft Azure Search Admin Key</source>
+            </trans-unit>
+            <trans-unit id="config.azure_search_version">
+                <source>Microsoft Azure Search Version</source>
+            </trans-unit>
+            <trans-unit id="records.title">
+                <source>Search Index</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
