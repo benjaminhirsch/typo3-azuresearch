@@ -5,6 +5,7 @@ return [
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
+        'adminOnly' => true,
         'title' => 'LLL:EXT:azuresearch/Resources/Private/Language/locallang.xlf:records.title',
         'enablecolumns' => [
             'disabled' => 'hidden'
@@ -12,7 +13,9 @@ return [
         'typeicon_classes' => [
             'default' => 'microsoft-azure-search'
         ],
-        'searchFields' => 'title'
+        'searchFields' => 'title',
+        //'readOnly' => true,
+        'editlock' => 'editlock' // sql field needed https://docs.typo3.org/typo3cms/TCAReference/Reference/Ctrl/Index.html?highlight=editlock
     ],
     'interface' => [
         'showRecordFieldList' => 'hidden,title'
