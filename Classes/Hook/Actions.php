@@ -55,6 +55,6 @@ class Actions
         file_put_contents('pObj.txt', print_r($this, true));
         */
 
-        $this->azure->deleteIndex($recordToDelete['title']);
+        //$this->azure->deleteIndex($recordToDelete['title']);
     }
 }
