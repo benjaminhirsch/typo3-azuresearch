@@ -20,9 +20,3 @@ $iconRegistry->registerIcon(
     \TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,
     ['source' => 'EXT:azuresearch/ext_icon.png']
 );
-
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-    $_EXTKEY,                       // Extension Key
-    'Azure Search',     // Path to setup.txt and constants.txt
-    'Azure Search'                  // Title in the selector box
-);

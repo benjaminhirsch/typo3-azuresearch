@@ -62,4 +62,20 @@ class Typo3
         
         return false;
     }
+
+    /**
+     * @param DatabaseConnection $connection
+     * @param $uid
+     * @return bool|string
+     */
+    public static function loadIndexTitleByUid(DatabaseConnection $connection, $uid)
+    {
+        $index = $connection->exec_SELECTgetSingleRow('title', 'tx_azuresearch_index', 'uid = ' . $uid);
+
+        if (is_array($index) && isset($index['title'])) {
+            return $index['title'];
+        }
+        
+        return false;
+    }
 }

@@ -4,6 +4,7 @@ namespace B3N\Azure\Typo3\Controller;
 
 use B3N\Azure\Index;
 use B3N\Azure\Typo3\Factory\AzureSearch;
+use TYPO3\CMS\Backend\Tree\View\PageTreeView;
 use TYPO3\CMS\Core\Database\DatabaseConnection;
 use TYPO3\CMS\Extbase\Mvc\Controller\CommandController;
 use TYPO3\CMS\Frontend\Page\PageRepository;
@@ -36,10 +37,26 @@ class AzureIndexCommandController extends CommandController
      */
     private $currentIndex;
 
+    /**
+     * @var \TYPO3\CMS\Core\Log\Logger
+     */
+    private $logger;
+
+    /**
+     * @var int
+     */
+    private $documents = 0;
+
+    /**
+     * @var int
+     */
+    private $indexes = 0;
+
     public function __construct()
     {
         $this->db = $GLOBALS['TYPO3_DB'];
         $this->azure = AzureSearch::getInstance();
+        $this->logger = \B3N\Azure\Typo3\Factory\Logger::getInstance();
     }
 
     public function indexerCommand()
@@ -57,11 +74,16 @@ class AzureIndexCommandController extends CommandController
         );
 
         $indexes = $databaseResource->fetch_all(MYSQLI_ASSOC);
-
         foreach ($indexes as $index) {
+            $this->indexes++;
             $this->currentIndex = $index['title'];
             $this->getPage($index['pid']);
         }
+
+        // Submit last entries
+        $this->submitBatch();
+
+        $this->logger->info('Azure indexer: Indexes ['.$this->indexes.'], Documents [' . $this->documents . ']' . PHP_EOL);
     }
 
     private function getPage($pid)
@@ -164,27 +186,34 @@ class AzureIndexCommandController extends CommandController
                 }
                 $this->db->sql_free_result($res);
                 if (!empty($rows)) {
+
                     // Content
                     foreach ($rows as $row) {
+
+                        $this->documents++;
+
                         if (count($this->batch) == 1000) {
                             $this->submitBatch();
                         }
 
                         $this->batch['value'][] = [
                             '@search.action' => Index::ACTION_MERGE_OR_UPLOAD,
-                            'uid' => $row['uid'],
-                            'title' => $row['title'],
+                            'uid' => (string)$row['uid'],
+                            'title' => $page['title'],
+                            'header' => $row['header'],
+                            'ctype' => $row['CType'],
+                            'categories' => $row['categories'],
+                            'tstamp' => $row['tstamp'],
+                            't3ver_stage' => $row['t3ver_stage'],
                             'pid' => $row['pid'],
                             'sys_language_uid' => $row['sys_language_uid'],
-                            'content' => $row['bodytext']
+                            'l18n_parent' => $row['l18n_parent'],
+                            'bodytext' => $row['bodytext']
                         ];
                     }
                 }
             }
         }
-
-        $this->submitBatch();
-        $this->db->sql_free_result($databaseResource);
     }
 
     private function submitBatch()

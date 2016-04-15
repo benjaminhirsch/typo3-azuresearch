@@ -15,7 +15,8 @@ return [
         ],
         'searchFields' => 'title',
         //'readOnly' => true,
-        'editlock' => 'editlock' // sql field needed https://docs.typo3.org/typo3cms/TCAReference/Reference/Ctrl/Index.html?highlight=editlock
+        //'is_static' => true,
+        //'editlock' => 'editlock' // sql field needed https://docs.typo3.org/typo3cms/TCAReference/Reference/Ctrl/Index.html?highlight=editlock
     ],
     'interface' => [
         'showRecordFieldList' => 'hidden,title'
