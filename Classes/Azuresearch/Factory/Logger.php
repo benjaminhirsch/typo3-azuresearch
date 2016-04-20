@@ -1,6 +1,6 @@
 <?php
 
-namespace B3N\Azure\Typo3\Factory;
+namespace B3N\Azure\Typo3\Azuresearch\Factory;
 
 use TYPO3\CMS\Core\Log\LogLevel;
 use TYPO3\CMS\Core\Log\Writer\FileWriter;

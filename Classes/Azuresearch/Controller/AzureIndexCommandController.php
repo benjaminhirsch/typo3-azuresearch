@@ -1,10 +1,9 @@
 <?php
 
-namespace B3N\Azure\Typo3\Controller;
+namespace B3N\Azure\Typo3\AzureSearch\Controller;
 
 use B3N\Azure\Index;
-use B3N\Azure\Typo3\Factory\AzureSearch;
-use TYPO3\CMS\Backend\Tree\View\PageTreeView;
+use B3N\Azure\Typo3\Azuresearch\Factory\AzureSearch;
 use TYPO3\CMS\Core\Database\DatabaseConnection;
 use TYPO3\CMS\Extbase\Mvc\Controller\CommandController;
 use TYPO3\CMS\Frontend\Page\PageRepository;
@@ -56,7 +55,7 @@ class AzureIndexCommandController extends CommandController
     {
         $this->db = $GLOBALS['TYPO3_DB'];
         $this->azure = AzureSearch::getInstance();
-        $this->logger = \B3N\Azure\Typo3\Factory\Logger::getInstance();
+        $this->logger = \B3N\Azure\Typo3\Azuresearch\Factory\Logger::getInstance();
     }
 
     public function indexerCommand()

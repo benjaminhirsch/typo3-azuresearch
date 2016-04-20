@@ -15,6 +15,9 @@
             <trans-unit id="records.title">
                 <source>Search Index</source>
             </trans-unit>
+            <trans-unit id="detail.title">
+                <source>Set the search index</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

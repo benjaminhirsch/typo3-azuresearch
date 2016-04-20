@@ -1,14 +1,14 @@
 <?php
 
-namespace B3N\Azure\Typo3\Hook;
+namespace B3N\Azure\Typo3\Azuresearch\Hook;
 
 use B3N\Azure\Exception\LengthException;
 use B3N\Azure\Exception\UnexpectedValueException;
 use B3N\Azure\Index;
 use B3N\Azure\Search;
-use B3N\Azure\Typo3\Factory\AzureSearch;
-use B3N\Azure\Typo3\Factory\Logger;
-use B3N\Azure\Typo3\Service\Typo3;
+use B3N\Azure\Typo3\Azuresearch\Factory\AzureSearch;
+use B3N\Azure\Typo3\Azuresearch\Factory\Logger;
+use B3N\Azure\Typo3\Azuresearch\Service\Typo3;
 use TYPO3\CMS\Core\Database\DatabaseConnection;
 
 class Actions

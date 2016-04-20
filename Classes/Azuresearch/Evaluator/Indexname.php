@@ -1,6 +1,6 @@
 <?php
 
-namespace B3N\Azure\Typo3\Evaluator;
+namespace B3N\Azure\Typo3\Azuresearch\Evaluator;
 
 class Indexname
 {

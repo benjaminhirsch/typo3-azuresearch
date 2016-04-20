@@ -1,6 +1,6 @@
 <?php
 
-namespace B3N\Azure\Typo3\Service;
+namespace B3N\Azure\Typo3\Azuresearch\Service;
 
 use TYPO3\CMS\Core\Database\DatabaseConnection;
 

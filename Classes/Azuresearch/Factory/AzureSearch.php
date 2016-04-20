@@ -1,9 +1,9 @@
 <?php
 
-namespace B3N\Azure\Typo3\Factory;
+namespace B3N\Azure\Typo3\Azuresearch\Factory;
 
 use B3N\Azure\Search;
-use B3N\Azure\Typo3\Exception\MissingExtensionSettingException;
+use B3N\Azure\Typo3\Azuresearch\Exception\MissingExtensionSettingException;
 
 class AzureSearch
 {

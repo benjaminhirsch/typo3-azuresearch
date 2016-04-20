@@ -1,0 +1,16 @@
+<T3DataStructure>
+    <ROOT>
+        <type>array</type>
+        <el>
+            <settings.azuresearch>
+                <TCEforms>
+                    <label>LLL:EXT:azuresearch/Resources/Private/Language/locallang.xlf:detail.title</label>
+                    <config>
+                        <type>select</type>
+                        <foreign_table>tx_azuresearch_index</foreign_table>
+                    </config>
+                </TCEforms>
+            </settings.azuresearch>
+        </el>
+    </ROOT>
+</T3DataStructure>
