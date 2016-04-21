@@ -1,1 +1,32 @@
-<f:debug>{res.value}</f:debug>
+<f:form extensionName="azuresearch" pluginName="SearchForm" controller="AzureSearch" method="get" noCache="true">
+    <f:form.textfield name="q" />
+    <f:form.submit value="Submit" />
+</f:form>
+
+<f:if condition="{res.value}">
+    <f:then>
+
+        <br />
+
+        <strong><f:count>{res.value}</f:count></strong> entries found.
+
+        <hr />
+
+        <f:for each="{res.value}" as="p">
+
+            <f:link.page pageUid="{p.pid}"><strong>{p.title}</strong></f:link.page>
+
+            <br />
+
+            <f:format.crop maxCharacters="280">
+                <f:format.stripTags>{p.bodytext}</f:format.stripTags>
+            </f:format.crop>
+
+            <hr />
+
+        </f:for>
+    </f:then>
+    <f:else>
+            Nothing found with <strong>{q}</strong>
+    </f:else>
+</f:if>
